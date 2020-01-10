@@ -1,0 +1,21 @@
+<h3 class="bg-primary p-a-1">Lista {{getName()}}a</h3>
+<div class="m-t-1 m-b-1">
+  <input class="form-control" #description />
+  <button class="btn btn-primary m-t-1" (click)="addItem(description.value)">Dodaj</button>
+</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr><th></th><th>Zadanie</th><th>Wykonane</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of getItems(); let i = index">
+      <td>{{i+1}}</td>
+      <td>{{item.action}}</td>
+      <td><label><input type="checkbox" [(ngModel)]="item.done" /> <span></span></label></td>
+      <td [ngSwitch]="item.done">
+        <span *ngSwitchCase="true">Tak</span>
+        <span *ngSwitchDefault>Nie</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<small>
+  Koszyk: 
+  <span *ngIf="cart.itemCount > 0">
+    {{ cart.itemCount }} produkt(ow)
+    {{ cart.cartPrice | currency:"zl":true:"2.2-2"}}
+  </span>
+  <span *ngIf="cart.itemCount == 0">
+    (pusty)
+  </span>
+  <button class="btn btn-sm" [disabled]="cart.itemCount == 0" routerLink="/cart">
+    Koszyczek
+  </button>
+</small>
